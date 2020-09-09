@@ -14,6 +14,9 @@ then
   INPUT_DESTINATION_BRANCH=master
 fi
 
+echo $INPUT_USER_EMAIL
+echo $INPUT_USER_NAME
+
 CLONE_DIR=$(mktemp -d)
 
 echo "Cloning destination git repository"
@@ -30,7 +33,7 @@ echo "Adding git commit"
 git add .
 if git status | grep -q "Changes to be committed"
 then
-  git commit --message "Update from https://$API_TOKEN_GITHUB:x-oauth-basic@github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
+  git commit --message "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
   echo "Pushing git commit"
   git push origin $INPUT_DESTINATION_BRANCH
 else
