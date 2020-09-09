@@ -14,7 +14,9 @@ then
   INPUT_DESTINATION_BRANCH=master
 fi
 
+echo "Email:"
 echo $INPUT_USER_EMAIL
+echo "Username:"
 echo $INPUT_USER_NAME
 
 CLONE_DIR=$(mktemp -d)
